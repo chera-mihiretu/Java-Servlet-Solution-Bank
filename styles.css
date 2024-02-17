@@ -234,7 +234,11 @@ body {
       grid-template-columns: 50% 50%;
       align-items: center;
   }
-  
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
   .field input {
       font-size: 16px;
       line-height: 28px;
@@ -252,6 +256,7 @@ body {
                   rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                   rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                   rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+      
   }
   
   input[type="submit"] {
