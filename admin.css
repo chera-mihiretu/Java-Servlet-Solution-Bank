@@ -102,3 +102,11 @@ header {
     border-radius: 4px;
     cursor: pointer;
   }
+  .approve_button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #19b800;
+    color: #fff;
+    cursor: pointer;
+  }
