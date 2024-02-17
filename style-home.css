@@ -1,0 +1,64 @@
+
+.container {
+  
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .card-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .card-table td {
+    padding: 10px;
+  }
+  
+  .card {
+    background-color: rgba(45, 87, 146, 0.374);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    cursor: pointer;
+  }
+
+  .card:hover{
+    box-shadow: 0 0 20px rgba(85, 105, 208, .6);
+    transition: .2s;
+  }
+  
+  .card-content{
+    padding: 20px;
+  }
+
+  .card img {
+    width: 50%;
+    height: 100%;
+  }
+  
+  .card-content h2 {
+    margin-top: 0;
+  }
+  
+  .card-content p {
+    margin-bottom: 0;
+  }
+
+  body{
+    padding: 0;
+    margin: 0;
+  }
+  .avatar{
+    height: 80px;
+    
+  }
+  .nav-container {
+    margin: 0;
+    padding: 10px;
+    background-color: rgb(36, 153, 255);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
