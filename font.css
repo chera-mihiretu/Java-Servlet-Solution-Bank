@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'YourCustomFont';
+    src: url('path/to/font.woff2') format('woff2'),
+         url('path/to/font.woff') format('woff');
+    /* Add additional font formats if necessary */
+    /* Make sure to replace 'path/to/font' with the actual path to your font files */
+  }
+  
+  body {
+    font-family: 'YourCustomFont', Arial, sans-serif;
+    /* Rest of your styles */
+  }
