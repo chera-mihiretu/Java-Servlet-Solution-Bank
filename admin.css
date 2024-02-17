@@ -1,0 +1,86 @@
+header {
+    background-color: rgb(36, 153, 255);
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-title {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+  }
+  
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .card-content h3 {
+    margin: 0;
+  }
+  
+  .card-content p {
+    margin-top: 10px;
+  }
+  
+  .delete-button {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .fixed-form {
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: height 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Updated */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fixed-form.expanded {
+    height: 120px;
+  }
+
+  .fixed-form input {
+    flex-grow: 1;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px; /* Added */
+  }
+
+  .fixed-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
