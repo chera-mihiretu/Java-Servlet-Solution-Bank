@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<%@page import="jakarta.servlet.http.HttpSession,com.start.*" %>
 <html>
 <head>
   <title>My Webpage</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="font.css">
+  <link rel="stylesheet" href="../style/styles.css">
+  <link rel="stylesheet" href="../style/font.css">
 
 </head>
 <body>
@@ -17,7 +18,7 @@
               <div class="formbg">
                 <div class="formbg-inner padding-horizontal--48">
                   <span class="padding-bottom--15">Sign in to your account</span>
-                  <form id="stripe-login">
+                  <form id="stripe-login" action="../login_agent_servlet" method="post">
                     <div class="field padding-bottom--24">
                       <label for="email">Phone Number</label>
                       <input type="text" name="phone_no">
@@ -25,14 +26,25 @@
                     <div class="field padding-bottom--24">
                       <div class="grid--50-50">
                         <label for="password">Password</label>
-                        <div class="reset-pass">
-                          <a href="#">Forgot your password?</a>
-                        </div>
                       </div>
                       <input type="password" name="password">
                     </div>
+                      <div style="color: red;">
+                          <label style="color: red;">
+                              <%
+                                  String error = (String)session.getAttribute(Constants.ERROR);
+                                  if(error != null){
+                                    out.print(error);
+                                  }
+                              %>
+                              
+                          </label>
+                          
+                      </div>
                     <div class="field padding-bottom--24">
-                      <input type="submit" name="submit" value="Continue">
+                      
+                        <input type="submit" name="submit" value="Continue">
+                      
                     </div>
                   </form>
                 </div>

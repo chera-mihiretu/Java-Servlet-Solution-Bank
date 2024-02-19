@@ -217,6 +217,9 @@ body {
       line-height: 28px;
       color: #1a1f36;
   }
+  .error p{
+      color: red;
+  }
   label {
       margin-bottom: 10px;
   }
@@ -272,18 +275,10 @@ input::-webkit-inner-spin-button {
       font-weight: 600;
       cursor: pointer;
   }
-  .field-checkbox input {
-      width: 20px;
-      height: 15px;
-      margin-right: 5px; 
-      box-shadow: unset;
-      min-height: unset;
-  }
-  .field-checkbox label {
-      display: flex;
-      align-items: center;
-      margin: 0;
-  }
+  .error p{
+    color: red;
+    padding: 10px;
+    }
   a.ssolink {
       display: block;
       text-align: center;
