@@ -17,7 +17,7 @@
             <div class="formbg-outer">
               <div class="formbg">
                 <div class="formbg-inner padding-horizontal--48">
-                  <span class="padding-bottom--15">Sign in to your account</span>
+                  <span class="padding-bottom--15">For Agents</span>
                   <form id="stripe-login" action="../login_agent_servlet" method="post">
                     <div class="field padding-bottom--24">
                       <label for="email">Phone Number</label>

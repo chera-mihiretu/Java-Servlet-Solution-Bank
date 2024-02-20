@@ -1,4 +1,7 @@
+
+<%@page import="jakarta.servlet.http.HttpSession,com.start.*" %>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +10,12 @@
   <link rel="stylesheet" href="../style/admin.css">
 </head>
 <body>
-    
+    <%
+      String as = (String) session.getAttribute(Constants.AS);
+      if (as == null || as.isEmpty() || !as.equals(Constants.AGENT)){
+            response.sendRedirect("../index.html");
+      }
+  %>
   <header>
     <nav>
       <div class="nav-container">
@@ -19,6 +27,7 @@
   <main>
     <div class="container">
       <h2>Welcome to the Agent Panel</h2>
+      
       <div class="card">
         <img src="../assets/user.png" alt="Card 2 Image">
         <div class="card-content">

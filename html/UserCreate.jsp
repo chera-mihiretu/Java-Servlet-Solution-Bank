@@ -15,6 +15,12 @@
         <link rel="stylesheet" href="../style/font.css">
     </head>
     <body>
+        <%
+            String as = (String) session.getAttribute(Constants.AS);
+            if (as == null || as.isEmpty() || !as.equals(Constants.AGENT)){
+                  response.sendRedirect("../index.html");
+            }
+        %>
         <div class="login-root">
         <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
           <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
