@@ -27,9 +27,10 @@ public class AdminLog extends HttpServlet {
         String password = String.valueOf(request.getParameter("password"));
         HttpSession seccion = request.getSession();
         DatabaseAlter db = new DatabaseAlter(Constants.database);
-        if (Validator.empty(password) || Validator.lengthCheck(password, 6)){
+        if (password == null || Validator.empty(password) || Validator.lengthCheck(password, 6)){
             seccion.setAttribute(Constants.ERROR, "Check Password");
-            response.sendRedirect("html/AdminLogin");
+            response.sendRedirect("html/AdminLogin.jsp");
+            return;
         }
         
         if (db.statementCreated()){
@@ -39,13 +40,22 @@ public class AdminLog extends HttpServlet {
                 ResultSet value = st.executeQuery(query);
                 if (value.next()){
                     seccion.setAttribute(Constants.AS, Constants.ADMIN);
+                    seccion.setAttribute(Constants.ERROR, null);
+                    
                     response.sendRedirect("html/admin_page.jsp");
+                   
+                }else{
+                    seccion.setAttribute(Constants.ERROR, "Wrong Password");
+                response.sendRedirect("html/AdminLogin.jsp");
                 }
             }catch (SQLException e){
                 seccion.setAttribute(Constants.ERROR, "Something went wrong");
-            response.sendRedirect("html/AdminLogin");
+                response.sendRedirect("html/AdminLogin.jsp");
             }
             
+        }else{
+            seccion.setAttribute(Constants.ERROR, "Something went wrong");
+            response.sendRedirect("html/AdminLogin.jsp");
         }
     }
 }

@@ -17,9 +17,7 @@ public class DatabaseAlter {
     public DatabaseAlter(String database){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-        
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+database,"root", "root");
-            connection.setAutoCommit(false);
             statment = connection.createStatement();
             
             

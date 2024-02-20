@@ -44,7 +44,10 @@ public class LogIn extends HttpServlet {
             try{
                 Statement st = db.getStatment();
                 
+                
+                
                 String query = String.format("select name from Users where phone_number = %s and password = \'%s\'", phone_no, pass);
+                
                 ResultSet value = st.executeQuery(query);
                 if(value.next()){
                     seccion.setAttribute(Constants.NAME, value.getString(1));

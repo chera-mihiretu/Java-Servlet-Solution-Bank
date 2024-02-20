@@ -29,10 +29,9 @@ public class CreateUser extends HttpServlet {
         String phone_no = String.valueOf(request.getParameter("phone_no"));
         String password = String.valueOf(request.getParameter("password"));
         String balance = String.valueOf(request.getParameter("balance"));
-        String user = (String) seccion.getAttribute(Constants.ID_ON_GOING);
-        if (user.isEmpty()){
-            seccion.removeAttribute(Constants.PHONE_NUMBER);
-            response.sendRedirect("index.html");
+        String as = (String) seccion.getAttribute(Constants.AS);
+        if (as == null || as.isEmpty() || !as.equals(Constants.AGENT)){
+              response.sendRedirect("../index.html");
         }
         DatabaseAlter db = new DatabaseAlter(Constants.database);
         if(Validator.empty(name) || Validator.empty(phone_no) || Validator.empty(password) || Validator.empty(balance)){
@@ -54,7 +53,7 @@ public class CreateUser extends HttpServlet {
             return;
         }
 
-        if (Validator.lengthCheck(phone_no, 10)|| phone_no.length() > 10){
+        if (Validator.lengthCheck(phone_no, 10)&& phone_no.length() > 10){
             db.close();
             seccion.setAttribute(Constants.ERROR, "Phone number is not correct");
             response.sendRedirect("html/UserCreate.jsp");
@@ -70,11 +69,25 @@ public class CreateUser extends HttpServlet {
             try{
                 st.executeUpdate(query);
                 
+                ResultSet set = st.executeQuery("select ac_number from Users where phone_number = "+phone_no +" and ac_name = "+"\'"+name+"\'");
+                seccion.setAttribute(Constants.ERROR, null);
+                String ac_number = "";
+                if (set.next()){
+                    ac_number = set.getString(1);
+                }
+                
+                seccion.setAttribute(Constants.ERROR, null);
+                seccion.setAttribute(Constants.NAME, name);
+                seccion.setAttribute(Constants.PASSWORD, password);
+                
+                seccion.setAttribute("ac_number", ac_number);
+
+                response.sendRedirect("html/CreatedUserInfo.jsp");
             }catch (SQLException e){
                 db.close();
                 seccion.setAttribute(Constants.ERROR, "Something went wrong, check the phone number");
-                response.sendRedirect("html/CreateUser.jsp");
-                return;
+                response.sendRedirect("html/UserCreate.jsp");
+                
             }
             
         }
