@@ -26,7 +26,7 @@ public class LogIn extends HttpServlet {
         DatabaseAlter db = new DatabaseAlter(Constants.database);
         String phone_no = String.valueOf(request.getParameter("phone_no"));
         String pass = String.valueOf(request.getParameter("password"));
-        String user = (String) seccion.getAttribute(Constants.ID_ON_GOING);
+        
         // validating the inputs
         if (phone_no.equals("") || pass.equals("")){
             db.close();
@@ -46,14 +46,15 @@ public class LogIn extends HttpServlet {
                 
                 
                 
-                String query = String.format("select name from Users where phone_number = %s and password = \'%s\'", phone_no, pass);
+                String query = String.format("select ac_name from Users where phone_number = %s and password = \'%s\'", phone_no, pass);
                 
                 ResultSet value = st.executeQuery(query);
                 if(value.next()){
+                    seccion.setAttribute(Constants.AS, Constants.USER);
                     seccion.setAttribute(Constants.NAME, value.getString(1));
                     seccion.setAttribute(Constants.PHONE_NUMBER, phone_no);
+                    seccion.setAttribute(Constants.PASSWORD, pass);
                     seccion.setAttribute("phone_no", value.getString(1));
-                    seccion.setAttribute(Constants.ID_ON_GOING, null);
                     response.sendRedirect("html/home.jsp");
                     
                 }else{
@@ -61,7 +62,7 @@ public class LogIn extends HttpServlet {
                     response.sendRedirect("html/login.jsp");
                 }
             }catch (SQLException e){
-                seccion.setAttribute(Constants.ERROR, "Somethin went wrong, please try again!");
+                seccion.setAttribute(Constants.ERROR, e.getMessage());//"Somethin went wrong, please try again!");
                 response.sendRedirect("html/login.jsp");
             }
             

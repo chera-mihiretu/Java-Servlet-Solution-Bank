@@ -30,6 +30,7 @@ public class CreateUser extends HttpServlet {
         String password = String.valueOf(request.getParameter("password"));
         String balance = String.valueOf(request.getParameter("balance"));
         String as = (String) seccion.getAttribute(Constants.AS);
+        String user_id = (String) seccion.getAttribute(Constants.USER_ID);
         if (as == null || as.isEmpty() || !as.equals(Constants.AGENT)){
               response.sendRedirect("../index.html");
         }
@@ -65,7 +66,7 @@ public class CreateUser extends HttpServlet {
             Statement st = db.getStatment();
             
             
-            String query = String.format("insert into Users(ac_name, password, balance, phone_number) values(\'%s\', \'%s\', %s, %s)", name, password, balance, phone_no);
+            String query = String.format("insert into Users(ac_name, password, balance, phone_number, ag_id) values(\'%s\', \'%s\', %s, %s, %s)", name, password, balance, phone_no, user_id);
             try{
                 st.executeUpdate(query);
                 

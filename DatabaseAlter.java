@@ -61,4 +61,18 @@ public class DatabaseAlter {
             e.printStackTrace();
         }
     }
+    public void notAuto() throws SQLException{
+        connection.setAutoCommit(false);
+    }
+    
+    public void commit() throws SQLException{
+        connection.commit();
+    }
+    
+    public void rollBack() throws SQLException{
+        connection.rollback();
+    }
+    public void auto() throws SQLException{
+        connection.setAutoCommit(true);
+    }
 }

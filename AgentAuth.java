@@ -65,7 +65,9 @@ public class AgentAuth extends HttpServlet{
                 if (setVal.next()){
                     seccion.setAttribute(Constants.ERROR,null);
                     seccion.setAttribute(Constants.AS,Constants.AGENT);
+                    seccion.setAttribute(Constants.USER_ID, setVal.getString(1));
                     response.sendRedirect("html/home_agent.jsp");
+                    
                 }else{
                     seccion.setAttribute(Constants.ERROR, "No such User!");
                     response.sendRedirect("html/login_agent.jsp");

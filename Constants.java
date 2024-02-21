@@ -20,7 +20,7 @@ public class Constants {
     public static String ERROR = "error";
     public static String PASSWORD = "pass";
     public static String PHONE_NUMBER = "phone_no";
-    public static String ID_ON_GOING = "user_id";
+    public static String USER_ID = "user_id";
     public static String ADMIN = "admin";
     public static String USER = "user";
     public static String AGENT = "agent";
