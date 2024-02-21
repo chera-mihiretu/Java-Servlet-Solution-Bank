@@ -60,21 +60,19 @@ body {
   height: 80px;
   position: absolute;
   border-radius: 50%;
-  border: 6px solid white;
-  background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
+  border: 6px solid rgb(36, 153, 255);;
+  background-color: white;
   top: 15px;
   left: 85px;
 }
-.portada{
-    background-image: url("../assets/user.jpg");
-}
+
 .card-text {
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
 
 .title-total {
-  padding: 2.5em 1.5em 1.5em 1.5em;
+  padding: 5em 4em 4em 4em;
 }
 
 path {

@@ -36,7 +36,7 @@
             if (s != null && !s.isEmpty()){
                 out.print(s);
             }
-           
+            session.removeAttribute(Constants.ERROR);
             %></label>
             <br>
       <button type="submit">Submit</button>

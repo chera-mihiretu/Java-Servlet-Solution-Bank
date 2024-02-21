@@ -39,6 +39,15 @@
                       </div>
                       <input type="password" name="password">
                     </div>
+                      <label style="color: red;">
+                          <%
+                              String error = (String)session.getAttribute(Constants.ERROR);
+                              if (error != null && !error.isEmpty())
+                                out.print(error);
+                              
+                                session.removeAttribute(Constants.ERROR);
+                              %>
+                      </label>
                     <div class="field padding-bottom--24">
                       <input type="submit" name="submit" value="Continue">
                     </div>

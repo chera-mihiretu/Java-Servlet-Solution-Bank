@@ -16,7 +16,7 @@
     <body>
         <%
       String as = (String) session.getAttribute(Constants.AS);
-      if (as == null || as.isEmpty() || !as.equals(Constants.AGENT)){
+      if (as == null || as.isEmpty() || !as.equals(Constants.AGENT) || !as.equals(Constants.USER)){
             response.sendRedirect("../index.html");
       }
   %>
@@ -24,8 +24,9 @@
   
             <%
       String name = (String) session.getAttribute(Constants.NAME);
-      String account = (String) session.getAttribute("ac_number");
+      String account = (String) session.getAttribute(Constants.ACCOUNT);
       String  password = (String) session.getAttribute(Constants.PASSWORD);
+      String balance = (String) session.getAttribute(Constants.BALANCE);
       
   %>
   
@@ -44,6 +45,7 @@
       <div class="desc">
           <label>Password :<%=password%> </label><br>
             <label>Account  :<%=account%></label>
+            <label>Balance  :<%=balance%></label>
 
       </div>
       

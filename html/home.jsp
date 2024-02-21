@@ -14,7 +14,7 @@
 
 </head>
 <body>
-    <%
+   <%
       String as = (String) session.getAttribute(Constants.AS);
       if (as == null || as.isEmpty() || !as.equals(Constants.USER)){
             response.sendRedirect("../index.html");
@@ -71,13 +71,12 @@
             </a>
         </td>
         <td>
-            <a>          
+            <a href="">          
                 <div class="card">
                     <img src="../assets/pay_bill.jpg" alt="Card Image">
                     <div class="card-content">
-                        <h2>Pay bills</h2>
-                        <p>Pay for your mean and other stuffs.</p>
-                        <label>Not yet implemented.</label>
+                        <h2>See Info</h2>
+                        <p>Check your status.</p>
                     </div>
                 </div>
             </a>  
