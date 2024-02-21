@@ -1,3 +1,4 @@
+<%@page import="jakarta.servlet.http.HttpSession,com.start.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,12 @@
 
 </head>
 <body>
+    <%
+      String as = (String) session.getAttribute(Constants.AS);
+      if (as == null || as.isEmpty() || !as.equals(Constants.USER)){
+            response.sendRedirect("../index.html");
+      }
+  %>
     <div class="login-root">
         <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
         
@@ -17,17 +24,26 @@
             <div class="formbg-outer">
               <div class="formbg">
                 <div class="formbg-inner padding-horizontal--48">
-                  <form id="stripe-login">
+                  <form id="stripe-login" action="../debit_money" method="post">
                     <div class="field padding-bottom--24">
-                      <label for="number">Amount</label>
-                      <input type="text" name="phone_no">
+                      <label>Account</label>
+                      <input type="number" name="ac_number">
                     </div>
                     <div class="field padding-bottom--24">
                       <div class="grid--50-50">
-                        <label for="password">Password</label>
+                        <label for="password">Amount</label>
                       </div>
-                      <input type="password" name="password">
+                      <input type="number" name="amount">
                     </div>
+                      <label style="color: red;">
+                          <%
+                              String error = (String)session.getAttribute(Constants.ERROR);
+                              if (error != null && !error.isEmpty())
+                                out.print(error);
+                              
+                                session.removeAttribute(Constants.ERROR);
+                              %>
+                      </label>
                     <div class="field padding-bottom--24">
                       <input type="submit" name="submit" value="Continue">
                     </div>

@@ -36,6 +36,7 @@
                                   if(error != null){
                                     out.print(error);
                                   }
+                                  session.removeAttribute(Constants.ERROR);
                               %>
                               
                           </label>

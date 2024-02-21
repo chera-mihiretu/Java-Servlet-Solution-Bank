@@ -3,8 +3,8 @@
 <html>
 <head>
   <title>Log in</title>
-  <link rel="stylesheet" href="../style/styles.css">
   <link rel="stylesheet" href="../style/font.css">
+  <link rel="stylesheet" href="../style/styles.css">
 
 </head>
 <body>
@@ -36,6 +36,7 @@
                                   if(error != null){
                                     out.print(error);
                                   }
+                                  session.removeAttribute(Constants.ERROR);
                               %>
                               
                           </label>
