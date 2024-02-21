@@ -24,6 +24,8 @@ public class Constants {
     public static String ADMIN = "admin";
     public static String USER = "user";
     public static String AGENT = "agent";
+    public static String BALANCE = "balance";
+    public static String ACCOUNT = "ac_number";
 
     
     //=====================Admin related =============================//

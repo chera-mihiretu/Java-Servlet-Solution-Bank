@@ -31,6 +31,13 @@ public class DoDebit extends HttpServlet {
         
         String amount = String.valueOf(request.getParameter("amount"));
         String account = String.valueOf(request.getParameter("ac_number"));
+        String user = (String) seccion.getAttribute(Constants.AS);
+        
+        if (user == null || user.isEmpty() || !user.equals(Constants.USER)){
+            response.sendRedirect("index.html");
+            return;
+        }
+        
         
         if (amount.isEmpty() || account.isEmpty()){
             seccion.setAttribute(Constants.ERROR, "Feild Cannot Be empty");

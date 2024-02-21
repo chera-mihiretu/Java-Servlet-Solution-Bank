@@ -30,6 +30,15 @@ public class CreateAgent extends HttpServlet {
         
         String name = String.valueOf(request.getParameter("agent_name"));
         String phone = String.valueOf(request.getParameter("agent_phone"));
+        String user = (String) seccion.getAttribute(Constants.AS);
+        
+        if (user == null || user.isEmpty() || !user.equals(Constants.ADMIN)){
+            response.sendRedirect("index.jsp");
+            return;
+        }
+        
+        
+        
         System.out.print("slghjksl");
         if(name.isEmpty() || phone.isEmpty()){
             db.close();

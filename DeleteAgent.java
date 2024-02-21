@@ -30,8 +30,10 @@ public class DeleteAgent extends HttpServlet {
         HttpSession session = request.getSession();
         String user = (String)session.getAttribute(Constants.AS);
         
+        
+        
         if (user == null || !user.equals(Constants.ADMIN) || user.isEmpty()){
-            response.sendRedirect("../index.html");
+            response.sendRedirect("index.html");
             return;
         }
         

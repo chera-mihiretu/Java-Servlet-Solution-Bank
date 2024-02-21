@@ -80,8 +80,9 @@ public class CreateUser extends HttpServlet {
                 seccion.setAttribute(Constants.ERROR, null);
                 seccion.setAttribute(Constants.NAME, name);
                 seccion.setAttribute(Constants.PASSWORD, password);
+                seccion.setAttribute(Constants.BALANCE, balance);
                 
-                seccion.setAttribute("ac_number", ac_number);
+                seccion.setAttribute(Constants.ACCOUNT, ac_number);
 
                 response.sendRedirect("html/CreatedUserInfo.jsp");
             }catch (SQLException e){

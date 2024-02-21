@@ -54,7 +54,7 @@ public class LogIn extends HttpServlet {
                     seccion.setAttribute(Constants.NAME, value.getString(1));
                     seccion.setAttribute(Constants.PHONE_NUMBER, phone_no);
                     seccion.setAttribute(Constants.PASSWORD, pass);
-                    seccion.setAttribute("phone_no", value.getString(1));
+                
                     response.sendRedirect("html/home.jsp");
                     
                 }else{

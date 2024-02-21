@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
@@ -19,12 +20,21 @@ public class Aprove extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession seccion = request.getSession();
         DatabaseAlter db = new DatabaseAlter(Constants.database);
         String id = (String) request.getParameter("id");
         String ac_number = (String) request.getParameter("ac_number");
         String amount = (String) request.getParameter("amount");
         PrintWriter out = response.getWriter();
         out.print(id);
+        
+        String user = (String) seccion.getAttribute(Constants.AS);
+        
+        if (user == null || user.isEmpty() || !user.equals(Constants.AGENT)){
+            response.sendRedirect("index.html");
+            return;
+        }
+        
         try{
             
 
