@@ -10,6 +10,9 @@
           text-decoration: none;
           color: black;
       }
+      label{
+          font-size: 10px;
+      }
   </style>
 
 </head>
@@ -31,17 +34,17 @@
   </nav>
   
   <div class="container">
-    <h1>Do Your Transaction!</h1>
+    <h1>Agent</h1>
     
     <table class="card-table">
       <tr>
         <td>
           <a href="UserCreate.jsp">
           <div class="card">
-            <img src="../assets/Debit.jpg" alt="Card Image">
+            <img src="../assets/book.jpg" alt="Card Image">
             <div class="card-content">
               <h2>Account Create</h2>
-              <p>This is the description for the Debit card.</p>
+              <label>Our a bank account offers secure financial services with options like saving, and more.</lable>
             </div>
           </div>
             </a>
@@ -49,10 +52,10 @@
         <td>
           <a href="agent_debit_aprove.jsp">
             <div class="card">
-              <img src="../assets/Debit.jpg" alt="Card Image">
+              <img src="../assets/aprove.jpg" alt="Card Image">
               <div class="card-content">
                 <h2>Debit Approve</h2>
-                <p>This is the description for the Debit card.</p>
+                <label>When creating a debit account, the approval process typically involves verification by a bank agent!</label>
               </div>
           </div>
         </a>
@@ -60,13 +63,15 @@
       </tr>
       <tr>
         <td>
-          <div class="card">
-            <img src="../assets/transfer.jpg" alt="Card Image">
-            <div class="card-content">
-              <h2>Transfer</h2>
-              <p>This is the description for the Transfer card.</p>
-            </div>
+           <a href="debit_agent.jsp">
+            <div class="card">
+              <img src="../assets/Debit.jpg" alt="Card Image">
+              <div class="card-content">
+                <h2>Debit</h2>
+                <label>Debiting money allows for the payment or transfer of funds from the account holder's balance.</label>
+              </div>
           </div>
+        </a>
         </td>
       </tr>
     </table>

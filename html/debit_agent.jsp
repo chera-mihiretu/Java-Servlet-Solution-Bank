@@ -10,7 +10,7 @@
 <body>
     <%
       String as = (String) session.getAttribute(Constants.AS);
-      if (as == null || as.isEmpty() || !as.equals(Constants.USER)){
+      if (as == null || as.isEmpty() || !as.equals(Constants.AGENT)){
             response.sendRedirect("../index.html");
       }
       
@@ -25,7 +25,7 @@
             <div class="formbg-outer">
               <div class="formbg">
                 <div class="formbg-inner padding-horizontal--48">
-                    <form id="stripe-login" action="../debit_money" method="post">
+                    <form id="stripe-login" action="../debit_money_agent" method="post">
                     <div class="field padding-bottom--24">
                       <label>Account</label>
                       <input type="number" name="ac_number">

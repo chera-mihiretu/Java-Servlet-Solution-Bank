@@ -16,8 +16,13 @@
     <body>
         <%
       String as = (String) session.getAttribute(Constants.AS);
-      if (as == null || as.isEmpty() || !as.equals(Constants.AGENT) || !as.equals(Constants.USER)){
+      if (as == null || as.isEmpty()){
             response.sendRedirect("../index.html");
+      }
+      boolean a = !as.equals(Constants.AGENT);
+      boolean b = !as.equals(Constants.USER);
+      if (!((!a && b) || (a && !b))){
+        response.sendRedirect("../index.html");
       }
   %>
   

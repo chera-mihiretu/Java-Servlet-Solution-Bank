@@ -10,6 +10,9 @@
           text-decoration: none;
           color: black;
       }
+      label{
+          font-size: 10px;
+      }
   </style>
 
 </head>
@@ -41,7 +44,7 @@
                   <img src="../assets/Debit.jpg" alt="Card Image">
                   <div class="card-content">
                     <h2>Debit</h2>
-                    <p>We will keep your money safe.</p>
+                    <label>We will keep your money safe.</label>
                   </div>
                 </div>
             </a>
@@ -52,7 +55,7 @@
                   <img src="../assets/cash_out.jpg" alt="Card Image">
                   <div class="card-content">
                     <h2>Cash Out</h2>
-                    <p>Want your money on your hand.</p>
+                    <label>Want your money on your hand.</label>
                   </div>
                 </div>
             </a>
@@ -65,18 +68,18 @@
                   <img src="../assets/transfer.jpg" alt="Card Image">
                   <div class="card-content">
                     <h2>Transfer</h2>
-                    <p>Send money to any one.</p>
+                    <label>Send money to any one.</label>
                   </div>
                 </div>
             </a>
         </td>
         <td>
-            <a href="">          
+            <a href="../show_info">          
                 <div class="card">
                     <img src="../assets/pay_bill.jpg" alt="Card Image">
                     <div class="card-content">
                         <h2>See Info</h2>
-                        <p>Check your status.</p>
+                        <label>Check your status.</label>
                     </div>
                 </div>
             </a>  
@@ -89,8 +92,8 @@
                   <img src="../assets/ATM_request.jpg" alt="Card Image">
                   <div class="card-content">
                     <h2>ATM Request</h2>
-                    <p>Request ATM for fast cash out.</p>
-                    <label>Not yet implemented.</label>
+                     <label>Request ATM for fast cash out.<br>
+                   Not yet implemented.</label>
                   </div>
                 </div>
             </a>

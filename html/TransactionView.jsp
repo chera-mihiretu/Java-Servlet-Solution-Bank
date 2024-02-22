@@ -20,7 +20,7 @@
 <body>
     <%
       String as = (String) session.getAttribute(Constants.AS);
-      if (as == null || as.isEmpty() || !as.equals(Constants.AGENT)){
+      if (as == null || as.isEmpty() || !as.equals(Constants.ADMIN)){
             response.sendRedirect("../index.html");
       }
   %>
@@ -43,7 +43,7 @@
       <h2>Welcome to the Agent Panel</h2>
       
       <% 
-        String queryRetrival = String.format("select * from TransactionDone where aproved = \"NO\"");
+        String queryRetrival = String.format("select * from TransactionDone");
         ResultSet sset = stat.executeQuery(queryRetrival);
         String balance = ""; 
         String ac_number = "";
@@ -56,18 +56,17 @@
           <p>Account Number:<%ac_number = sset.getString(5);%><%=ac_number%></p>
           <p>Amount:<% balance = sset.getString(3);%><%=balance%></p>
           <p>Date:<%=sset.getString(4)%></p>
-
-           
-        </div>
-        <a class="approve_button" href="../approve?id=<%=sset.getString(1)%>&ac_number=<%=sset.getString(5)%>&amount=<%=sset.getString(3)%>">Approve</a>
-                
+          <P>Approved: <%= sset.getString(8)%>
+          <p>By:<%=sset.getString(6)
+              %></p>
+             </div>
       </div>
                 <%
                }
            %>
            
      
-    </div>
+    
 
     
   </main>
