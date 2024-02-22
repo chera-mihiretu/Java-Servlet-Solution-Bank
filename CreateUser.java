@@ -54,7 +54,7 @@ public class CreateUser extends HttpServlet {
             return;
         }
 
-        if (Validator.lengthCheck(phone_no, 10)&& phone_no.length() > 10){
+        if (phone_no.length() != 10){
             db.close();
             seccion.setAttribute(Constants.ERROR, "Phone number is not correct");
             response.sendRedirect("html/UserCreate.jsp");

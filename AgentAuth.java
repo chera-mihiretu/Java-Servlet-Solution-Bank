@@ -42,7 +42,7 @@ public class AgentAuth extends HttpServlet{
             response.sendRedirect("html/login_agent.jsp");
             return;
         }
-        if (Validator.lengthCheck(phone, 10) && phone.length() > 10){
+        if (phone.length() != 10){
             db.close();
             seccion.setAttribute(Constants.ERROR, "Check phone number ");
             response.sendRedirect("html/login_agent.jsp");

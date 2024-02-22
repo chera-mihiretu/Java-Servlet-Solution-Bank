@@ -29,6 +29,8 @@ public class Aprove extends HttpServlet {
         out.print(id);
         
         String user = (String) seccion.getAttribute(Constants.AS);
+        String agent_id = (String) seccion.getAttribute(Constants.USER_ID);
+
         
         if (user == null || user.isEmpty() || !user.equals(Constants.AGENT)){
             response.sendRedirect("index.html");
@@ -40,8 +42,8 @@ public class Aprove extends HttpServlet {
 
             if (db.statementCreated()){
                 Statement stat = db.getStatment();
-                String queryTwo = String.format("delete from TransactionDone where tr_id = %s", id);
-                String queryOne = String.format("update Users set balance = balance + %s where ac_number = %s", amount, ac_number);
+                String queryTwo = String.format("update TransactionDone set aproved = \"YES\", ag_id = %s where tr_id = %s", agent_id,id);
+                String queryOne = String.format("update Users set balance = balance + %s where  ac_number = %s", amount, ac_number);
                 db.notAuto();
                 stat.executeUpdate(queryOne);
                 stat.executeUpdate(queryTwo);

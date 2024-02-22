@@ -46,7 +46,7 @@ public class LogIn extends HttpServlet {
                 
                 
                 
-                String query = String.format("select ac_name from Users where phone_number = %s and password = \'%s\'", phone_no, pass);
+                String query = String.format("select ac_name, ac_number from Users where phone_number = %s and password = \'%s\'", phone_no, pass);
                 
                 ResultSet value = st.executeQuery(query);
                 if(value.next()){
@@ -54,6 +54,7 @@ public class LogIn extends HttpServlet {
                     seccion.setAttribute(Constants.NAME, value.getString(1));
                     seccion.setAttribute(Constants.PHONE_NUMBER, phone_no);
                     seccion.setAttribute(Constants.PASSWORD, pass);
+                    seccion.setAttribute(Constants.ACCOUNT, value.getInt(2)+"");
                 
                     response.sendRedirect("html/home.jsp");
                     

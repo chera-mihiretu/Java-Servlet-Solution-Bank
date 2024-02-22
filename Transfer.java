@@ -40,6 +40,7 @@ public class Transfer extends HttpServlet {
         
         String sec_pass = (String)session.getAttribute(Constants.PASSWORD);
         String phone = (String)session.getAttribute(Constants.PHONE_NUMBER);
+        String account = (String)session.getAttribute(Constants.ACCOUNT);
         String user = (String) session.getAttribute(Constants.AS);
         
         if (user == null || user.isEmpty() || !user.equals(Constants.USER)){
@@ -53,7 +54,7 @@ public class Transfer extends HttpServlet {
                 if (db.statementCreated()){
                     try{
                         Statement stat = db.getStatment();
-                        ResultSet balance = stat.executeQuery("select balance from Users where phone_number = " + phone);
+                        ResultSet balance = stat.executeQuery("select balance from Users where ac_number = " + account);
                         boolean sufficientBalance = false;
                         if (balance.next()){
                             int am = Integer.parseInt(amount);

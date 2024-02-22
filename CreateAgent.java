@@ -38,8 +38,6 @@ public class CreateAgent extends HttpServlet {
         }
         
         
-        
-        System.out.print("slghjksl");
         if(name.isEmpty() || phone.isEmpty()){
             db.close();
             seccion.setAttribute(Constants.ERROR, "Feild Cannot be Empty");
@@ -47,7 +45,7 @@ public class CreateAgent extends HttpServlet {
             return;
         }
         
-        if (Validator.lengthCheck(phone, 10) && phone.length() > 11){
+        if (phone.length() != 10){
             
             db.close();
             seccion.setAttribute(Constants.ERROR, "Check Phone number");
@@ -55,7 +53,7 @@ public class CreateAgent extends HttpServlet {
             return;
         }
         
-        if (Validator.containsNumber(name) || Validator.lengthCheck(name, 8)){
+        if (Validator.containsSpecial(name) || Validator.lengthCheck(name, 8)){
             db.close();
             seccion.setAttribute(Constants.ERROR, "Check the name of the agent" );
             response.sendRedirect("html/admin_page.jsp");
